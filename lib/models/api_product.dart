@@ -19,7 +19,6 @@ class ApiProduct {
     required this.rating,
   });
 
-  // Convertir de JSON a objeto ApiProduct
   factory ApiProduct.fromJson(Map<String, dynamic> json) {
     return ApiProduct(
       id: json['id'],
@@ -34,7 +33,6 @@ class ApiProduct {
     );
   }
 
-  // Convertir al modelo Product existente
   Product toProduct() {
     return Product(
       id: id,

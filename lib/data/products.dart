@@ -1,5 +1,5 @@
 import '../models/product.dart';
-import '../models/api_product.dart';
+//import '../models/api_product.dart';
 import '../services/product_service.dart';
 
 // Lista temporal mientras se cargan los datos de la API

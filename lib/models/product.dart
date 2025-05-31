@@ -7,6 +7,8 @@ class Product {
   final String? imageUrl;
   final double? rating;
   final int? ratingCount;
+  
+  String get title => name;
 
   Product({
     this.id,
@@ -18,4 +20,13 @@ class Product {
     this.rating,
     this.ratingCount,
   });
+  
+  factory Product.fromDummyJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'],
+      name: json['title'],
+      description: json['description'],
+      price: (json['price'] as num).toDouble(),
+    );
+  }
 }
