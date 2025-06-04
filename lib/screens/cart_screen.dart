@@ -106,7 +106,6 @@ class _CartScreenState extends State<CartScreen> {
                               ],
                             ),
                           ),
-                          // Icono para eliminar del carrito
                           IconButton(
                             icon: Icon(Icons.delete_outline, color: Colors.red),
                             onPressed: () {
@@ -157,7 +156,6 @@ class _CartScreenState extends State<CartScreen> {
                 onPressed: items.isEmpty
                     ? null
                     : () {
-                        // Aquí iría la lógica de checkout
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('Procesando compra...')),
                         );

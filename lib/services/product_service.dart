@@ -1,11 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../models/product.dart'; // Solo importamos Product
-
+import '../models/product.dart'; 
 class ProductService {
   static const String baseUrl = 'https://fakestoreapi.com';
 
-  // Obtener todos los productos
   Future<List<Product>> getProducts() async {
     try {
       final response = await http.get(Uri.parse('$baseUrl/products'));
@@ -21,7 +19,6 @@ class ProductService {
     }
   }
 
-  // Obtener un producto por ID
   Future<Product> getProduct(int id) async {
     try {
       final response = await http.get(Uri.parse('$baseUrl/products/$id'));
@@ -36,7 +33,6 @@ class ProductService {
     }
   }
 
-  // Obtener productos por categoría
   Future<List<Product>> getProductsByCategory(String category) async {
     try {
       final response = await http.get(
@@ -54,7 +50,6 @@ class ProductService {
     }
   }
 
-  // Obtener todas las categorías
   Future<List<String>> getCategories() async {
     try {
       final response = await http.get(

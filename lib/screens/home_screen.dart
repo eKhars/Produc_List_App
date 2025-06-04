@@ -158,7 +158,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                           ),
-                          // Flecha para navegar al detalle
                           IconButton(
                             icon: Icon(Icons.arrow_forward_ios),
                             onPressed: () {
