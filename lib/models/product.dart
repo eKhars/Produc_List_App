@@ -21,12 +21,38 @@ class Product {
     this.ratingCount,
   });
   
+  // Factory para la Fake Store API
+  factory Product.fromApi(Map<String, dynamic> json) {
+    final ratingData = json['rating'] as Map<String, dynamic>?;
+    
+    return Product(
+      id: json['id'],
+      name: json['title'], 
+      description: json['description'],
+      price: json['price'] is int 
+          ? (json['price'] as int).toDouble() 
+          : (json['price'] as num).toDouble(),
+      category: json['category'],
+      imageUrl: json['image'], 
+      rating: ratingData != null 
+          ? (ratingData['rate'] is int 
+              ? (ratingData['rate'] as int).toDouble() 
+              : (ratingData['rate'] as num).toDouble())
+          : null,
+      ratingCount: ratingData?['count'],
+    );
+  }
+  
   factory Product.fromDummyJson(Map<String, dynamic> json) {
     return Product(
       id: json['id'],
-      name: json['title'],
+      name: json['title'] ?? json['name'], 
       description: json['description'],
       price: (json['price'] as num).toDouble(),
+      category: json['category'],
+      imageUrl: json['imageUrl'] ?? json['image'],
+      rating: json['rating']?.toDouble(),
+      ratingCount: json['ratingCount'],
     );
   }
 }
