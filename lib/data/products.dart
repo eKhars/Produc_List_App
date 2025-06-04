@@ -1,7 +1,6 @@
 import '../models/product.dart';
 import '../services/product_service.dart';
 
-// Lista temporal mientras se cargan los datos de la API
 List<Product> productList = [
   Product(
     name: 'Cargando...',
@@ -10,16 +9,15 @@ List<Product> productList = [
   ),
 ];
 
-// Método para cargar productos desde la API
 Future<void> loadProducts() async {
   try {
     final productService = ProductService();
     final apiProducts = await productService.getProducts();
     
-    productList = apiProducts; // Ya no necesitamos conversión, son Product directamente
+    productList = apiProducts; 
   } catch (e) {
     print('Error al cargar productos: $e');
-    // Productos de respaldo en caso de error
+    
     productList = [
       Product(
         name: 'Laptop',

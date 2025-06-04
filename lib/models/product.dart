@@ -21,7 +21,6 @@ class Product {
     this.ratingCount,
   });
   
-  // Factory para la Fake Store API
   factory Product.fromApi(Map<String, dynamic> json) {
     final ratingData = json['rating'] as Map<String, dynamic>?;
     
